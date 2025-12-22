@@ -1,0 +1,43 @@
+"use strict";
+const userMonthInput = prompt("Enter month number");
+const userMonthNumber = Number(userMonthInput);
+if (userMonthInput !== null) {
+    if (validateMonthNum(userMonthNumber)) {
+        const season = getSeasonFromFirstMonth(userMonthNumber);
+        console.log(season);
+    }
+}
+function generateError(val) {
+    throw new Error(val);
+}
+function validateMonthNum(val) {
+    if (val < 1 || val > 12) {
+        generateError("Не коректне значення (діапазон 1-12)");
+    }
+    const validMonths = [3, 6, 9, 12];
+    if (!validMonths.includes(val)) {
+        generateError("Введіть 1-й місяць пори року (3, 6, 9 або 12)");
+    }
+    return true;
+}
+function getSeasonFromFirstMonth(number) {
+    let val = "";
+    switch (number) {
+        case 3:
+            val = "Весна";
+            break;
+        case 6:
+            val = "Літо";
+            break;
+        case 9:
+            val = "Осінь";
+            break;
+        case 12:
+            val = "Зима";
+            break;
+        default:
+            const exCheck = number;
+            return generateError(`Необроблене значення: ${exCheck}`);
+    }
+    return val;
+}
