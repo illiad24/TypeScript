@@ -1,0 +1,9 @@
+"use strict";
+// Задача 4. Є продукти: Book (має author), Electronics (має warranty), Clothes (має size).
+//  Продукти можуть бути onSale або regularPrice. Створити тип ShopProduct,
+// який об’єднує тип продукту та його статус, використовуючи & і |.
+const prod1 = {
+    type: "Book",
+    author: "ivan",
+    status: "onSale",
+};
